@@ -22,11 +22,16 @@ main {
   justify-content: flex-end;
   padding-top: 20px;
   padding-bottom: 20px;
+  align-items: center;
 }
 
 .nav-item {
   color: white;
   text-decoration: none;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
 }
 
 .login-button {
@@ -35,4 +40,8 @@ main {
   text-decoration: none;
   color: black;
   padding: 10px;
+}
+
+.login-button:hover {
+  background-color: #13c5d1;
 }
