@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/styles/global.css" />
     <link rel="stylesheet" href="./src/styles/home.css" />
+    <script type="module" defer>
+      import { fetchAboutData } from "./build/scripts/api/about.js";
+
+      document.addEventListener("DOMContentLoaded", fetchAboutData);
+    </script>
     <title>Home</title>
   </head>
   <body>
@@ -17,18 +22,12 @@
 
       <section class="about-section">
         <div class="about-wrapper">
-          <h1 class="name">David Dyberg</h1>
+          <h1 class="name"></h1>
           <p class="title">
             I'm a <span class="title-fullstack">Fullstack Developer</span>
           </p>
-          <p class="biography">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et error
-            possimus alias aut laboriosam eius sit blanditiis, optio, a ad nisi
-            nobis animi consequatur! Praesentium aperiam eaque reiciendis
-            accusantium aspernatur numquam autem architecto illo ipsum fugiat
-            dolor nam maiores quod nobis incidunt sequi consequatur tempore
-            quaerat, id et? Ducimus, laborum.
-          </p>
+          <p class="biography"></p>
+          <p class="age"></p>
         </div>
         <div>
           <img
