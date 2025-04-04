@@ -23,6 +23,7 @@ export async function fetchAboutData() {
 
     const nameElement = document.querySelector(".name");
     const bioElement = document.querySelector(".biography");
+    const skillsElement = document.querySelector(".skills");
 
     if (nameElement) {
       nameElement.textContent =
@@ -30,9 +31,19 @@ export async function fetchAboutData() {
           ? `${aboutData.firstName} ${aboutData.lastName}`
           : "";
     }
-
     if (bioElement) {
       bioElement.textContent = aboutData.bio ?? "";
+    }
+
+    if (skillsElement) {
+      skillsElement.innerHTML = "";
+      if (aboutData.skills) {
+        aboutData.skills.forEach((skill) => {
+          const skillItem = document.createElement("li");
+          skillItem.textContent = skill;
+          skillsElement.appendChild(skillItem);
+        });
+      }
     }
   } catch (error) {
     console.error("Error fetching data:", error);
