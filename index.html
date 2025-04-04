@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="./src/styles/home.css" />
     <script type="module" defer>
       import { fetchAboutData } from "./build/scripts/api/about.js";
+      import { fetchLimitedProjectData } from "./build/scripts/api/projects.js";
 
-      document.addEventListener("DOMContentLoaded", fetchAboutData);
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchAboutData();
+        fetchLimitedProjectData();
+      });
     </script>
     <title>Home</title>
   </head>
@@ -39,11 +43,11 @@
         </div>
       </section>
 
-      <section>
+      <section class="pinned-projects-section">
         <h2 class="pinned-projects-title">Pinned projects</h2>
         <div class="projects-container">
           <div class="project-item">
-            <h3 class="project-name">IMBC colone</h3>
+            <h3 class="project-name"></h3>
             <img
               class="project-image"
               src="./assets/project-fake-image.png"
@@ -51,7 +55,7 @@
             />
           </div>
           <div class="project-item">
-            <h3 class="project-name">Radio App</h3>
+            <h3 class="project-name"></h3>
             <img
               class="project-image"
               src="./assets/project-fake-image.png"

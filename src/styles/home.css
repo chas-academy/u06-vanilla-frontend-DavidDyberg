@@ -48,6 +48,10 @@
   border-radius: 999px;
 }
 
+.pinned-projects-section {
+  padding-top: 4rem;
+}
+
 .pinned-projects-title {
   color: white;
   font-size: 2rem;
