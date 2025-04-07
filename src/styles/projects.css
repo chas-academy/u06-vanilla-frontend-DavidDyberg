@@ -2,10 +2,26 @@
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 2rem;
 }
 
-@media screen and (max-width: 800px) {
+.project-item {
+  width: 100%;
+}
+
+.project-name {
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.project-image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 700px) {
   .projects-container {
     grid-template-columns: auto;
     gap: 2rem;
