@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link rel="stylesheet" href="./src/styles/global.css" />
+    <script type="module" defer>
+      import { fetchProjectById } from "./build/scripts/api/projects.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get("id");
+        if (projectId) {
+          fetchProjectById(projectId);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Single project</h1>
+  </body>
+</html>
