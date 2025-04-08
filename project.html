@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="./src/styles/global.css" />
+    <link rel="stylesheet" href="./src/styles/project.css" />
     <script type="module" defer>
       import { fetchProjectById } from "./build/scripts/api/projects.js";
 
@@ -25,16 +26,16 @@
         <a class="login-button" href="/login.html">Login</a>
       </nav>
       <h1 class="project-title"></h1>
-      <section>
+      <section class="project-section">
         <img class="project-image" />
         <p class="description"></p>
 
-        <div>
-          <p>Teghnoligies used:</p>
+        <div class="techStack-wrapper">
+          <p class="techStack-title">Teghnoligies used:</p>
           <ul class="tech-stack"></ul>
         </div>
 
-        <div>
+        <div class="links-wrapper">
           <a class="live-demo">Link to live project</a>
           <a class="github-link">Link to source code</a>
         </div>
