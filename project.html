@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project</title>
+    <title></title>
     <link rel="stylesheet" href="./src/styles/global.css" />
     <script type="module" defer>
       import { fetchProjectById } from "./build/scripts/api/projects.js";
@@ -18,6 +18,27 @@
     </script>
   </head>
   <body>
-    <h1>Single project</h1>
+    <main>
+      <nav class="navbar">
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/projects.html">Projects</a>
+        <a class="login-button" href="/login.html">Login</a>
+      </nav>
+      <h1 class="project-title"></h1>
+      <section>
+        <img class="project-image" />
+        <p class="description"></p>
+
+        <div>
+          <p>Teghnoligies used:</p>
+          <ul class="tech-stack"></ul>
+        </div>
+
+        <div>
+          <a class="live-demo">Link to live project</a>
+          <a class="github-link">Link to source code</a>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

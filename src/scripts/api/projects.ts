@@ -72,8 +72,70 @@ export async function fetchProjectById(id: string) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data: projectType = await response.json();
-    console.log(data);
+    const project: projectType = await response.json();
+
+    const projectBrowserTitle = document.querySelector(
+      "title"
+    ) as HTMLTitleElement;
+
+    const projectTitleElement = document.querySelector(
+      ".project-title"
+    ) as HTMLHeadingElement;
+
+    const projectDescriptionElement = document.querySelector(
+      ".description"
+    ) as HTMLParagraphElement;
+
+    const projectImageElement = document.querySelector(
+      ".project-image"
+    ) as HTMLImageElement;
+
+    const projectTechStackElement = document.querySelector(
+      ".tech-stack"
+    ) as HTMLUListElement;
+
+    const projectGithubLinkElement = document.querySelector(
+      ".github-link"
+    ) as HTMLAnchorElement;
+
+    const projectLiveDemoElement = document.querySelector(
+      ".live-demo"
+    ) as HTMLAnchorElement;
+
+    if (projectBrowserTitle) {
+      projectBrowserTitle.textContent = project.title;
+    }
+
+    if (projectTitleElement) {
+      projectTitleElement.textContent = project.title;
+    }
+
+    if (projectDescriptionElement) {
+      projectDescriptionElement.textContent = project.description;
+    }
+
+    if (projectImageElement) {
+      projectImageElement.src = "./assets/project-fake-image.png";
+      projectImageElement.alt = `${project.title} image`;
+    }
+
+    if (projectTechStackElement) {
+      projectTechStackElement.innerHTML = "";
+
+      project.techStack?.forEach((tech) => {
+        const techItem = document.createElement("li");
+        techItem.textContent = tech;
+        projectTechStackElement.appendChild(techItem);
+      });
+    }
+
+    if (projectGithubLinkElement) {
+      projectGithubLinkElement.href = project.githubLink || "";
+    }
+
+    if (projectLiveDemoElement) {
+      projectLiveDemoElement.href = project.liveDemo || "";
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
   }
