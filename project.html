@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="./src/styles/global.css" />
     <link rel="stylesheet" href="./src/styles/project.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
     <script type="module" defer>
       import { fetchProjectById } from "./build/scripts/api/projects.js";
 
@@ -15,6 +16,7 @@
         if (projectId) {
           fetchProjectById(projectId);
         }
+        lucide.createIcons();
       });
     </script>
   </head>
@@ -36,8 +38,14 @@
         </div>
 
         <div class="links-wrapper">
-          <a class="live-demo" target="_blank">Link to live project</a>
-          <a class="github-link" target="_blank">Link to source code</a>
+          <a class="live-demo" target="_blank">
+            <i style="color: white" data-lucide="arrow-up-right"></i>
+            <p>Link to live project</p>
+          </a>
+          <a class="github-link" target="_blank">
+            <i style="color: white" data-lucide="arrow-up-right"></i>
+            <p>Link to source code</p>
+          </a>
         </div>
       </section>
     </main>
