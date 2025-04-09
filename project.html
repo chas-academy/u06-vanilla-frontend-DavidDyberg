@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./src/styles/global.css" />
     <link rel="stylesheet" href="./src/styles/project.css" />
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="./build/scripts/modal.js" defer></script>
     <script type="module" defer>
       import { fetchProjectById } from "./build/scripts/api/projects.js";
 
@@ -28,6 +29,7 @@
         <a class="login-button" href="/login.html">Login</a>
       </nav>
       <h1 class="project-title"></h1>
+      <button class="btn-open">Edit</button>
       <section class="project-section">
         <img class="project-image" />
         <p class="description"></p>
@@ -46,6 +48,17 @@
             <i style="color: white" data-lucide="arrow-up-right"></i>
             <p>Link to source code</p>
           </a>
+        </div>
+      </section>
+
+      <section class="modal hidden">
+        <div class="modal.container">
+          <button class="btn-close">
+            <i data-lucide="x"></i>
+          </button>
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Description" />
+          <button class="submit-button" type="submit">Save</button>
         </div>
       </section>
     </main>
