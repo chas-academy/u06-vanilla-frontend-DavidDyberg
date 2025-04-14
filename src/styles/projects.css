@@ -35,6 +35,27 @@
   text-decoration: none;
 }
 
+.projects-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-open {
+  border-radius: 20px;
+  background-color: #00eeff;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-open:hover {
+  background-color: #13c5d1;
+}
+
 @media screen and (max-width: 700px) {
   .projects-container {
     grid-template-columns: auto;
