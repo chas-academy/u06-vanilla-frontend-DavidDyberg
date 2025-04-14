@@ -102,6 +102,17 @@ export async function fetchProjectById(id: string) {
       ".live-demo"
     ) as HTMLAnchorElement;
 
+    const inputTitle = document.querySelector(".name") as HTMLInputElement;
+    const inputDescription = document.querySelector(
+      "#description"
+    ) as HTMLTextAreaElement;
+    const inputLiveLink = document.querySelector(
+      ".live-link"
+    ) as HTMLInputElement;
+    const inputSourceCode = document.querySelector(
+      ".source-code"
+    ) as HTMLInputElement;
+
     if (projectBrowserTitle) {
       projectBrowserTitle.textContent = project.title;
     }
@@ -135,6 +146,22 @@ export async function fetchProjectById(id: string) {
 
     if (projectLiveDemoElement) {
       projectLiveDemoElement.href = project.liveDemo || "";
+    }
+
+    if (inputTitle) {
+      inputTitle.value = project.title;
+    }
+
+    if (inputDescription) {
+      inputDescription.value = project.description;
+    }
+
+    if (inputLiveLink) {
+      inputLiveLink.value = project.liveDemo || "";
+    }
+
+    if (inputSourceCode) {
+      inputSourceCode.value = project.githubLink || "";
     }
   } catch (error) {
     console.error("Error fetching data:", error);
