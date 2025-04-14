@@ -7,6 +7,28 @@ body {
   min-height: 100vh;
 }
 
+.project-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.btn-open {
+  border-radius: 20px;
+  background-color: #00eeff;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-open:hover {
+  background-color: #13c5d1;
+}
+
 .project-section {
   display: flex;
   flex-direction: column;

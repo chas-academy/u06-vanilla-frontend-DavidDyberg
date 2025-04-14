@@ -44,8 +44,10 @@
         <a class="nav-item" href="/projects.html">Projects</a>
         <a class="login-button" href="/login.html">Login</a>
       </nav>
-      <h1 class="project-title"></h1>
-      <button class="btn-open">Edit</button>
+      <div class="project-title-wrapper">
+        <h1 class="project-title"></h1>
+        <button class="btn-open">Edit</button>
+      </div>
       <section class="project-section">
         <img class="project-image" />
         <p class="description"></p>
@@ -69,10 +71,10 @@
 
       <section class="modal hidden">
         <div class="modal-container">
+          <h2>Edit Project</h2>
           <button class="btn-close">
             <i data-lucide="x"></i>
           </button>
-          <h2>Edit Project</h2>
           <form class="edit-form">
             <label for="name">Name:</label>
             <input type="text" class="name" placeholder="Name" value="" />
