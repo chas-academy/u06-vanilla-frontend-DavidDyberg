@@ -10,14 +10,29 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="./build/scripts/modal.js" defer></script>
     <script type="module" defer>
-      import { fetchProjectById } from "./build/scripts/api/projects.js";
+      import {
+        fetchProjectById,
+        updateProjectById,
+      } from "./build/scripts/api/projects.js";
 
       document.addEventListener("DOMContentLoaded", () => {
         const params = new URLSearchParams(window.location.search);
         const projectId = params.get("id");
+
         if (projectId) {
           fetchProjectById(projectId);
         }
+
+        const editForm = document.querySelector(".edit-form");
+
+        editForm?.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          if (projectId) {
+            await updateProjectById(projectId);
+          }
+        });
+
         lucide.createIcons();
       });
     </script>
@@ -58,7 +73,7 @@
             <i data-lucide="x"></i>
           </button>
           <h2>Edit Project</h2>
-          <form id="edit-form">
+          <form class="edit-form">
             <label for="name">Name:</label>
             <input type="text" class="name" placeholder="Name" value="" />
             <label for="description">Description:</label>

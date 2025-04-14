@@ -167,3 +167,50 @@ export async function fetchProjectById(id: string) {
     console.error("Error fetching data:", error);
   }
 }
+
+export async function updateProjectById(id: string) {
+  const apiUrl = `https://david-dyberg-portfolio-api.vercel.app/api/projects/${id}`;
+
+  const inputTitle = document.querySelector(".name") as HTMLInputElement;
+  const inputDescription = document.querySelector(
+    "#description"
+  ) as HTMLTextAreaElement;
+  const inputLiveLink = document.querySelector(
+    ".live-link"
+  ) as HTMLInputElement;
+  const inputSourceCode = document.querySelector(
+    ".source-code"
+  ) as HTMLInputElement;
+
+  const updatedProject = {
+    title: inputTitle?.value,
+    description: inputDescription?.value,
+    liveDemo: inputLiveLink?.value,
+    githubLink: inputSourceCode?.value,
+  };
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        //Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(updatedProject),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Project updated successfully:", data);
+
+    const modal = document.querySelector(".modal") as HTMLElement;
+    modal?.classList.add("hidden");
+
+    fetchProjectById(id);
+  } catch (error) {
+    console.error("Error updating project:", error);
+  }
+}
