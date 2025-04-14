@@ -210,6 +210,8 @@ export async function updateProjectById(id: string) {
     modal?.classList.add("hidden");
 
     fetchProjectById(id);
+    fetchAllProjectData();
+    fetchLimitedProjectData();
   } catch (error) {
     console.error("Error updating project:", error);
   }
