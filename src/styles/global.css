@@ -50,3 +50,13 @@ h1 {
 .login-button:hover {
   background-color: #13c5d1;
 }
+
+footer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+}
+
+.footer-text {
+  color: white;
+  text-align: center;
+}
