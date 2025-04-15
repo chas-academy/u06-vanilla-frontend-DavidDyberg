@@ -13,6 +13,7 @@
       import {
         fetchProjectById,
         updateProjectById,
+        deleteProjectById,
       } from "./build/scripts/api/projects.js";
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -33,6 +34,14 @@
           }
         });
 
+        const deleteButton = document.querySelector(".delete-btn");
+        deleteButton?.addEventListener("click", async () => {
+          if (projectId) {
+            await deleteProjectById(projectId);
+            window.location.href = "/projects.html";
+          }
+        });
+
         lucide.createIcons();
       });
     </script>
@@ -46,7 +55,10 @@
       </nav>
       <div class="project-title-wrapper">
         <h1 class="project-title"></h1>
-        <button class="btn-open">Edit</button>
+        <div class="button-wrapper">
+          <button class="btn-open">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
       </div>
       <section class="project-section">
         <img class="project-image" />

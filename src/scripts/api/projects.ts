@@ -264,3 +264,28 @@ export async function updateProjectById(id: string) {
     console.error("Error updating project:", error);
   }
 }
+
+export async function deleteProjectById(id: string) {
+  const apiUrl = `https://david-dyberg-portfolio-api.vercel.app/api/projects/${id}`;
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        //Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Project deleted successfully:", data);
+
+    fetchAllProjectData();
+  } catch (error) {
+    console.error("Error deleting project:", error);
+  }
+}

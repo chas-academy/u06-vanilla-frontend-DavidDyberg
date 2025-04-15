@@ -29,6 +29,27 @@ body {
   background-color: #13c5d1;
 }
 
+.delete-btn {
+  border-radius: 20px;
+  background-color: firebrick;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: rgb(144, 25, 25);
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .project-section {
   display: flex;
   flex-direction: column;
