@@ -44,7 +44,7 @@ export function fetchAllProjectData() {
                     const projectElement = document.createElement("div");
                     projectElement.classList.add("project-item");
                     projectElement.innerHTML = `
-          <a class="project-link" href="/project.html?id=${project._id}">
+          <a class="project-link" href="/project?id=${project._id}">
             <h3 class="project-name">${project.title}</h3>
             <img
             class="project-image"
