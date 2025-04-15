@@ -5,7 +5,7 @@ type projectType = {
   image?: string;
   techStack?: string[];
   githubLink?: string;
-  liveDemo: string;
+  liveDemo?: string;
 };
 
 export default projectType;
