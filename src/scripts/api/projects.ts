@@ -168,6 +168,54 @@ export async function fetchProjectById(id: string) {
   }
 }
 
+export async function createProject() {
+  const apiUrl = `https://david-dyberg-portfolio-api.vercel.app/api/projects/`;
+
+  const inputTitle = document.querySelector(".name") as HTMLInputElement;
+  const inputDescription = document.querySelector(
+    "#description"
+  ) as HTMLTextAreaElement;
+  const inputLiveLink = document.querySelector(
+    ".live-link"
+  ) as HTMLInputElement;
+  const inputSourceCode = document.querySelector(
+    ".source-code"
+  ) as HTMLInputElement;
+
+  const newProject = {
+    title: inputTitle.value,
+    description: inputDescription?.value,
+    liveDemo: inputLiveLink?.value,
+    githubLink: inputSourceCode?.value,
+  };
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        //Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(newProject),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Project created successfully!", data);
+
+    const modal = document.querySelector(".modal") as HTMLElement;
+    modal.classList.add("hidden");
+
+    fetchLimitedProjectData();
+    fetchAllProjectData();
+  } catch (error) {
+    console.error("Error while creating project:", error);
+  }
+}
+
 export async function updateProjectById(id: string) {
   const apiUrl = `https://david-dyberg-portfolio-api.vercel.app/api/projects/${id}`;
 

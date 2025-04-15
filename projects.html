@@ -9,10 +9,18 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="./build/scripts/modal.js" defer></script>
     <script type="module" defer>
-      import { fetchAllProjectData } from "./build/scripts/api/projects.js";
+      import {
+        fetchAllProjectData,
+        createProject,
+      } from "./build/scripts/api/projects.js";
 
       document.addEventListener("DOMContentLoaded", () => {
         fetchAllProjectData();
+        const modalForm = document.querySelector(".add-form");
+        modalForm?.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          await createProject();
+        });
 
         lucide.createIcons();
       });
@@ -42,11 +50,15 @@
           <button class="btn-close">
             <i data-lucide="x"></i>
           </button>
-          <form class="edit-form">
+          <form class="add-form">
             <label for="name">Name:</label>
             <input required type="text" class="name" placeholder="Name" />
             <label for="description">Description:</label>
-            <textarea id="description" placeholder="Description"></textarea>
+            <textarea
+              required
+              id="description"
+              placeholder="Description"
+            ></textarea>
             <label for="live-link">Live Link:</label>
             <input class="live-link" placeholder="Live Link" />
             <label for="source-code">Source Code Link:</label>
